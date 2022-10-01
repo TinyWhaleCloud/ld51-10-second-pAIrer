@@ -4,6 +4,7 @@ extends KinematicBody2D
 # Constants
 # TODO: Find optimal player speed
 const PLAYER_SPEED = 600
+const HUD_DEAD_ZONE = 64
 
 # Node references
 onready var sprite := $Sprite as Sprite
@@ -17,13 +18,10 @@ func _ready() -> void:
     var sprite_size := sprite.get_rect().size
     _movement_area = Rect2(
         sprite_size.x / 2,
-        sprite_size.y / 2,
+        sprite_size.y / 2 + HUD_DEAD_ZONE,
         screen_size.x - sprite_size.x,
-        screen_size.y - sprite_size.y
+        screen_size.y - sprite_size.y - HUD_DEAD_ZONE
     )
-
-    # Set initial player position to center of the screen
-    position = screen_size / 2
 
 func _process(delta: float) -> void:
     handle_movement(delta)

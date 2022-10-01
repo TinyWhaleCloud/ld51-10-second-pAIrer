@@ -5,9 +5,9 @@ var dating_score := 0
 func _input(event: InputEvent) -> void:
     if event.is_action_pressed("ui_cancel"):
         get_tree().quit()
-    elif event.is_action_pressed("continue"):
+    elif event.is_action_pressed("debug_next_phase"):
         finish_phase()
-    elif event.is_action_pressed("do_stuff"):
+    elif event.is_action_pressed("interact"):
         add_point()
 
 func finish_phase() -> void:
