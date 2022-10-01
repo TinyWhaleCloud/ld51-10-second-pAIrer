@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "BaseGameScreen",
 "language": "GDScript",
 "path": "res://screens/game_phases/BaseGameScreen.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://actors/player/Player.gd"
 } ]
 _global_script_class_icons={
-"BaseGameScreen": ""
+"BaseGameScreen": "",
+"Player": ""
 }
 
 [application]
@@ -29,6 +35,10 @@ config/icon="res://icon.png"
 
 SceneManager="*res://globals/SceneManager.gd"
 GameState="*res://globals/GameState.gd"
+
+[debug]
+
+gdscript/warnings/return_value_discarded=false
 
 [display]
 
