@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "BaseGameScreen",
+"language": "GDScript",
+"path": "res://screens/game_phases/BaseGameScreen.gd"
+} ]
+_global_script_class_icons={
+"BaseGameScreen": ""
+}
+
 [application]
 
 config/name="10 second pAIrer"

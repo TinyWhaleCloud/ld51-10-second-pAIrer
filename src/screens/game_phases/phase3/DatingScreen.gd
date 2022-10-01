@@ -1,7 +1,8 @@
-extends Node2D
+extends BaseGameScreen
 
 func _ready() -> void:
-    $TotalScore.text = str(GameState.total_score)
+    GameState.finish_round()
+    $HUD.update_labels()
 
 func _input(event: InputEvent) -> void:
     if event.is_action_pressed("ui_cancel"):

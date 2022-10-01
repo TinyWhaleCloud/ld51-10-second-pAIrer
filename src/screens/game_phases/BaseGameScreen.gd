@@ -1,0 +1,2 @@
+class_name BaseGameScreen
+extends Node2D

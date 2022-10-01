@@ -1,4 +1,4 @@
-extends Node2D
+extends BaseGameScreen
 
 var dating_score := 0
 
@@ -11,9 +11,9 @@ func _input(event: InputEvent) -> void:
         add_point()
 
 func finish_phase() -> void:
-    print_debug("Finishing phase 2 with %d points." % dating_score)
-    GameState.add_score(dating_score)
-    SceneManager.switch_to_phase3()
+    print_debug("Finishing phase 1 with %d points." % dating_score)
+    GameState.add_round_score(dating_score)
+    SceneManager.switch_to_phase2()
 
 func add_point() -> void:
     dating_score += 1
