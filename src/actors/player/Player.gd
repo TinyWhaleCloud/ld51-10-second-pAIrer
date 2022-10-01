@@ -43,3 +43,6 @@ func handle_movement(delta: float) -> void:
     position += velocity * delta
     position.x = clamp(position.x, _movement_area.position.x, _movement_area.end.x)
     position.y = clamp(position.y, _movement_area.position.y, _movement_area.end.y)
+
+func reset_position() -> void:
+    position = Vector2(640, 480)
