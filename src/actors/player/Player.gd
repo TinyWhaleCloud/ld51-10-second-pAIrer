@@ -7,7 +7,7 @@ const PLAYER_SPEED = 600
 const HUD_DEAD_ZONE = 64
 
 # Node references
-onready var sprite := $Sprite as Sprite
+onready var sprite := $Sprite as AnimatedSprite
 
 # Internal state
 var _movement_area: Rect2
@@ -15,7 +15,7 @@ var _movement_area: Rect2
 func _ready() -> void:
     # Calculate movement area
     var screen_size := get_viewport_rect().size
-    var sprite_size := sprite.get_rect().size
+    var sprite_size := Vector2(64, 128)
     _movement_area = Rect2(
         sprite_size.x / 2,
         sprite_size.y / 2 + HUD_DEAD_ZONE,
@@ -43,6 +43,14 @@ func handle_movement(delta: float) -> void:
     position += velocity * delta
     position.x = clamp(position.x, _movement_area.position.x, _movement_area.end.x)
     position.y = clamp(position.y, _movement_area.position.y, _movement_area.end.y)
+
+    if velocity.x != 0 || velocity.y != 0:
+        rotation = velocity.angle()
+        if !sprite.playing:
+            sprite.play()
+    elif sprite.playing:
+        sprite.stop()
+        sprite.set_frame(0)
 
 func reset_position() -> void:
     position = Vector2(640, 480)
