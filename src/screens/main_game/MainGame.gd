@@ -2,9 +2,9 @@ class_name MainGame
 extends Node2D
 
 # Packed scenes (screens)
-const PairingScreen := preload("res://screens/game_phases/phase1/PairingScreen.tscn")
-const PlanningScreen := preload("res://screens/game_phases/phase2/PlanningScreen.tscn")
-const DatingScreen := preload("res://screens/game_phases/phase3/DatingScreen.tscn")
+const PairingScreen := preload("res://screens/main_game/phase1/PairingScreen.tscn")
+const PlanningScreen := preload("res://screens/main_game/phase2/PlanningScreen.tscn")
+const DatingScreen := preload("res://screens/main_game/phase3/DatingScreen.tscn")
 
 # Packed scenes (objects)
 const PlayerScene := preload("res://actors/player/Player.tscn")
@@ -15,7 +15,7 @@ onready var countdown_bar := hud.countdown_bar as CountdownBar
 
 # Current phase
 var current_phase := 0
-var current_phase_scene: BaseGameScreen = null
+var current_phase_scene: BaseGamePhase = null
 
 # Game state
 var player: Player = null
@@ -77,7 +77,7 @@ func cleanup_phase() -> void:
     current_phase = 0
     current_phase_scene = null
 
-func switch_to_phase(phase_number: int, phase_scene: BaseGameScreen) -> void:
+func switch_to_phase(phase_number: int, phase_scene: BaseGamePhase) -> void:
     # Clean up previous phase
     cleanup_phase()
 

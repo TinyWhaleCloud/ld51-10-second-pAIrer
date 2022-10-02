@@ -1,5 +1,5 @@
 class_name PlanningScreen
-extends BaseGameScreen
+extends BaseGamePhase
 
 signal planning_cards_selected
 

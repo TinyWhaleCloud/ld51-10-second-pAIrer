@@ -10,9 +10,9 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node2D",
-"class": "BaseGameScreen",
+"class": "BaseGamePhase",
 "language": "GDScript",
-"path": "res://screens/game_phases/BaseGameScreen.gd"
+"path": "res://screens/main_game/BaseGamePhase.gd"
 }, {
 "base": "Node2D",
 "class": "CardSlot",
@@ -24,10 +24,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ui/countdown_bar/CountdownBar.gd"
 }, {
-"base": "BaseGameScreen",
+"base": "BaseGamePhase",
 "class": "DatingScreen",
 "language": "GDScript",
-"path": "res://screens/game_phases/phase3/DatingScreen.gd"
+"path": "res://screens/main_game/phase3/DatingScreen.gd"
 }, {
 "base": "CanvasLayer",
 "class": "HUD",
@@ -39,15 +39,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://screens/main_game/MainGame.gd"
 }, {
-"base": "BaseGameScreen",
+"base": "BaseGamePhase",
 "class": "PairingScreen",
 "language": "GDScript",
-"path": "res://screens/game_phases/phase1/PairingScreen.gd"
+"path": "res://screens/main_game/phase1/PairingScreen.gd"
 }, {
-"base": "BaseGameScreen",
+"base": "BaseGamePhase",
 "class": "PlanningScreen",
 "language": "GDScript",
-"path": "res://screens/game_phases/phase2/PlanningScreen.gd"
+"path": "res://screens/main_game/phase2/PlanningScreen.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -60,7 +60,7 @@ _global_script_classes=[ {
 "path": "res://objects/profile_card/ProfileCard.gd"
 } ]
 _global_script_class_icons={
-"BaseGameScreen": "",
+"BaseGamePhase": "",
 "CardSlot": "",
 "CountdownBar": "",
 "DatingScreen": "",

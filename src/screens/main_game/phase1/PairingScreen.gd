@@ -1,5 +1,5 @@
 class_name PairingScreen
-extends BaseGameScreen
+extends BaseGamePhase
 
 signal pair_cards_selected
 
