@@ -7,6 +7,7 @@ const PlanningScreen := preload("res://screens/main_game/phase2/PlanningScreen.t
 const DatingScreen := preload("res://screens/main_game/phase3/DatingScreen.tscn")
 
 # Packed scenes (objects)
+const ProfileCardPoolScene := preload("res://objects/cards/profile_card/ProfileCardPool.tscn")
 const PlayerScene := preload("res://actors/player/Player.tscn")
 
 # Node references
@@ -18,6 +19,7 @@ var current_phase := 0
 var current_phase_scene: BaseGamePhase = null
 
 # Game state
+var profile_card_pool: ProfileCardPool = null
 var player: Player = null
 var round_score := 0
 var total_score := 0
@@ -34,6 +36,9 @@ var date_activity_card: DateCard = null
 func _ready() -> void:
     # Create player instance
     player = PlayerScene.instance() as Player
+
+    # Create profile card pool
+    profile_card_pool = ProfileCardPoolScene.instance() as ProfileCardPool
 
     # Connect events
     countdown_bar.connect("timeout", self, "_on_CountdownBar_timeout")
@@ -53,9 +58,10 @@ func _on_CountdownBar_timeout() -> void:
 
 # Scene management
 func start_new_round() -> void:
-    # Reset round state
+    # Reset phase instances
     cleanup_phase()
 
+    # Reset round state variables
     pairing_profile_card1 = null
     pairing_profile_card2 = null
     date_location_card = null
@@ -70,6 +76,12 @@ func finish_round() -> void:
     # TODO: Add scores and stuff
     total_score += round_score
     hud.total_score = total_score
+
+    # Check if there are enough profile cards left for another round
+    if profile_card_pool.current_pool_size() < 2:
+        # TODO: Game over condition when no profile cards are left
+        print_debug("No (or only one) profile card left in the deck!")
+        return
 
     # Start next round
     start_new_round()
@@ -115,6 +127,12 @@ func start_phase1() -> void:
     hud.phase_name = "Pairing"
     pairing_screen.connect("pair_cards_selected", self, "finish_phase1")
     pairing_screen.set_player(player)
+
+    # Shuffle cards and put up to 4 cards on the table
+    profile_card_pool.shuffle()
+    for i in range(4):
+        if profile_card_pool.shuffled_stack_size() > 0:
+            pairing_screen.add_card(profile_card_pool.draw_card())
 
     # Start countdown
     countdown_bar.init_timer(10)
@@ -187,8 +205,10 @@ func finish_phase2() -> void:
     # Remove card nodes from the scene
     pairing_profile_card1.remove_from_parent()
     pairing_profile_card2.remove_from_parent()
-    date_location_card.remove_from_parent()
-    date_activity_card.remove_from_parent()
+    if date_location_card:
+        date_location_card.remove_from_parent()
+    if date_activity_card:
+        date_activity_card.remove_from_parent()
 
     # Start next phase
     start_phase3()
@@ -216,4 +236,9 @@ func finish_phase3() -> void:
     print_debug("Finishing phase 3...")
     assert(current_phase == 3)
 
+    # Remove cards from pool
+    profile_card_pool.remove_from_pool(pairing_profile_card1.name)
+    profile_card_pool.remove_from_pool(pairing_profile_card2.name)
+
+    # Next round (if cards left)
     finish_round()
