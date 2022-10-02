@@ -1,7 +1,35 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://screens/main_game/phase2/PlanningScreen.gd" type="Script" id=1]
 [ext_resource path="res://screens/main_game/BaseGamePhase.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/card_slot/CardSlot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/cards/date_card/DateCard.tscn" type="PackedScene" id=4]
 
 [node name="PlanningScreen" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
+
+[node name="CardSlotDateLocation" parent="." index="0" instance=ExtResource( 3 )]
+position = Vector2( 560, 400 )
+
+[node name="CardSlotDateActivity" parent="." index="1" instance=ExtResource( 3 )]
+position = Vector2( 720, 400 )
+
+[node name="DateLocationCard1" parent="." index="2" instance=ExtResource( 4 )]
+position = Vector2( 113, 360 )
+card_title = "Location 1"
+date_card_type = 1
+
+[node name="DateLocationCard2" parent="." index="3" instance=ExtResource( 4 )]
+position = Vector2( 287, 216 )
+card_title = "Location 2"
+date_card_type = 1
+
+[node name="DateActivityCard1" parent="." index="4" instance=ExtResource( 4 )]
+position = Vector2( 968, 223 )
+card_title = "Activity 1"
+date_card_type = 2
+
+[node name="DateActivityCard2" parent="." index="5" instance=ExtResource( 4 )]
+position = Vector2( 1147, 353 )
+card_title = "Activity 2"
+date_card_type = 2

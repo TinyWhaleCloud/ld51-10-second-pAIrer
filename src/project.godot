@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area2D",
+"class": "BaseCard",
+"language": "GDScript",
+"path": "res://objects/cards/BaseCard.gd"
+}, {
 "base": "Node2D",
 "class": "BaseGamePhase",
 "language": "GDScript",
@@ -23,6 +28,11 @@ _global_script_classes=[ {
 "class": "CountdownBar",
 "language": "GDScript",
 "path": "res://ui/countdown_bar/CountdownBar.gd"
+}, {
+"base": "BaseCard",
+"class": "DateCard",
+"language": "GDScript",
+"path": "res://objects/cards/date_card/DateCard.gd"
 }, {
 "base": "BaseGamePhase",
 "class": "DatingScreen",
@@ -54,15 +64,17 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://actors/player/Player.gd"
 }, {
-"base": "Area2D",
+"base": "BaseCard",
 "class": "ProfileCard",
 "language": "GDScript",
-"path": "res://objects/profile_card/ProfileCard.gd"
+"path": "res://objects/cards/profile_card/ProfileCard.gd"
 } ]
 _global_script_class_icons={
+"BaseCard": "",
 "BaseGamePhase": "",
 "CardSlot": "",
 "CountdownBar": "",
+"DateCard": "",
 "DatingScreen": "",
 "HUD": "",
 "MainGame": "",

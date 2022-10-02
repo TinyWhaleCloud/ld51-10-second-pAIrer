@@ -27,6 +27,10 @@ var time_left_from_phase1 := 0.0
 var pairing_profile_card1: ProfileCard = null
 var pairing_profile_card2: ProfileCard = null
 
+# Date plan cards selected by the player in phase 2
+var date_location_card: DateCard = null
+var date_activity_card: DateCard = null
+
 func _ready() -> void:
     # Create player instance
     player = PlayerScene.instance() as Player
@@ -51,8 +55,11 @@ func _on_CountdownBar_timeout() -> void:
 func start_new_round() -> void:
     # Reset round state
     cleanup_phase()
+
     pairing_profile_card1 = null
     pairing_profile_card2 = null
+    date_location_card = null
+    date_activity_card = null
     time_left_from_phase1 = 0.0
     round_score = 0
 
@@ -135,7 +142,7 @@ func finish_phase1() -> void:
     pairing_profile_card1 = pairing_screen.get_pairing_profile_card1()
     pairing_profile_card2 = pairing_screen.get_pairing_profile_card2()
 
-    # Remove card nodes from the pairing scene
+    # Remove card nodes from the scene
     pairing_profile_card1.remove_from_parent()
     pairing_profile_card2.remove_from_parent()
 
@@ -172,10 +179,16 @@ func finish_phase2() -> void:
     # Stop countdown
     countdown_bar.stop_timer()
 
-    # TODO ...
+    # Get chosen cards (slots can be empty, too)
     var planning_screen := current_phase_scene as PlanningScreen
-    round_score = planning_screen.dating_score
-    hud.round_score = round_score
+    date_location_card = planning_screen.get_date_location_card()
+    date_activity_card = planning_screen.get_date_activity_card()
+
+    # Remove card nodes from the scene
+    pairing_profile_card1.remove_from_parent()
+    pairing_profile_card2.remove_from_parent()
+    date_location_card.remove_from_parent()
+    date_activity_card.remove_from_parent()
 
     # Start next phase
     start_phase3()
@@ -191,7 +204,13 @@ func start_phase3() -> void:
     hud.phase_name = "Date simulation"
     # dating_screen.connect("simulation_finished", self, "finish_phase3")
 
-    # TODO (implement date simulation)
+    # Add player and chosen profile cards
+    dating_screen.set_profile_cards(pairing_profile_card1, pairing_profile_card2)
+    dating_screen.set_date_cards(date_location_card, date_activity_card)
+
+    # TODO: Hide countdown bar, simulate date
+    countdown_bar.init_timer(10)
+    countdown_bar.start_timer()
 
 func finish_phase3() -> void:
     print_debug("Finishing phase 3...")

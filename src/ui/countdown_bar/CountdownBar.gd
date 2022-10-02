@@ -11,7 +11,7 @@ var remaining_time_after_stop := 0.0
 func _ready() -> void:
     init_timer(10)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
     if not timer.is_stopped():
         update_value(timer.time_left)
 

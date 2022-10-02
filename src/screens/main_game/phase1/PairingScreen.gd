@@ -19,11 +19,6 @@ func set_player(_player: Player) -> void:
     player.reset_position()
     add_child(player)
 
-func finish_phase() -> void:
-    if all_card_slots_filled():
-        print_debug("All card slots filled! Next phase!")
-        emit_signal("pair_cards_selected")
-
 func all_card_slots_filled() -> bool:
     return pair_card_slot_left.is_occupied and pair_card_slot_right.is_occupied
 
@@ -48,12 +43,13 @@ func select_card(card: ProfileCard) -> void:
         print_debug("Player selected card '%s' ... but there is no pair slot left!" % card.card_title)
 
     if all_card_slots_filled():
+        print_debug("All card slots filled! Next phase!")
         # Dramatic pause
         yield(get_tree().create_timer(0.5), "timeout")
-        finish_phase()
+        emit_signal("pair_cards_selected")
 
 func get_pairing_profile_card1() -> ProfileCard:
-    return pair_card_slot_left.current_card
+    return pair_card_slot_left.current_card as ProfileCard
 
 func get_pairing_profile_card2() -> ProfileCard:
-    return pair_card_slot_right.current_card
+    return pair_card_slot_right.current_card as ProfileCard

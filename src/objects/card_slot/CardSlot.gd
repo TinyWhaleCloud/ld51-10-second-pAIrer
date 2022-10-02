@@ -5,9 +5,9 @@ extends Node2D
 var is_occupied := false
 
 # Which card lies in this slot
-var current_card: ProfileCard = null
+var current_card: BaseCard = null
 
-func set_card(card: ProfileCard) -> void:
+func set_card(card: BaseCard) -> void:
     assert(current_card == null)
 
     current_card = card
