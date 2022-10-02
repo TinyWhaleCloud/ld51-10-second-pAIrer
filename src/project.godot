@@ -24,6 +24,31 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ui/countdown_bar/CountdownBar.gd"
 }, {
+"base": "BaseGameScreen",
+"class": "DatingScreen",
+"language": "GDScript",
+"path": "res://screens/game_phases/phase3/DatingScreen.gd"
+}, {
+"base": "CanvasLayer",
+"class": "HUD",
+"language": "GDScript",
+"path": "res://ui/hud/HUD.gd"
+}, {
+"base": "Node2D",
+"class": "MainGame",
+"language": "GDScript",
+"path": "res://screens/main_game/MainGame.gd"
+}, {
+"base": "BaseGameScreen",
+"class": "PairingScreen",
+"language": "GDScript",
+"path": "res://screens/game_phases/phase1/PairingScreen.gd"
+}, {
+"base": "BaseGameScreen",
+"class": "PlanningScreen",
+"language": "GDScript",
+"path": "res://screens/game_phases/phase2/PlanningScreen.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
@@ -38,6 +63,11 @@ _global_script_class_icons={
 "BaseGameScreen": "",
 "CardSlot": "",
 "CountdownBar": "",
+"DatingScreen": "",
+"HUD": "",
+"MainGame": "",
+"PairingScreen": "",
+"PlanningScreen": "",
 "Player": "",
 "ProfileCard": ""
 }
@@ -52,7 +82,6 @@ config/icon="res://icon.png"
 [autoload]
 
 SceneManager="*res://globals/SceneManager.gd"
-GameState="*res://globals/GameState.gd"
 
 [debug]
 

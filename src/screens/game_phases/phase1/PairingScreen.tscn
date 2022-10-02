@@ -8,23 +8,20 @@
 [node name="PairingScreen" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
 
-[node name="HUD" parent="." index="0"]
-phase_name = "Pairing"
-
-[node name="PairCardSlotLeft" parent="." index="1" instance=ExtResource( 5 )]
+[node name="PairCardSlotLeft" parent="." index="0" instance=ExtResource( 5 )]
 position = Vector2( 560, 480 )
 
-[node name="PairCardSlotRight" parent="." index="2" instance=ExtResource( 5 )]
+[node name="PairCardSlotRight" parent="." index="1" instance=ExtResource( 5 )]
 position = Vector2( 720, 480 )
 
-[node name="ProfileCard1" parent="." index="3" instance=ExtResource( 4 )]
+[node name="ProfileCard1" parent="." index="2" instance=ExtResource( 4 )]
 position = Vector2( 238, 232 )
 card_title = "Foo 1312"
 
-[node name="ProfileCard2" parent="." index="4" instance=ExtResource( 4 )]
+[node name="ProfileCard2" parent="." index="3" instance=ExtResource( 4 )]
 position = Vector2( 634, 204 )
 card_title = "Bar 161"
 
-[node name="ProfileCard3" parent="." index="5" instance=ExtResource( 4 )]
+[node name="ProfileCard3" parent="." index="4" instance=ExtResource( 4 )]
 position = Vector2( 1020, 233 )
 card_title = "Baz 1337"

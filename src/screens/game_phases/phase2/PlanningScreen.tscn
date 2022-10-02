@@ -5,6 +5,3 @@
 
 [node name="PlanningScreen" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
-
-[node name="HUD" parent="." index="0"]
-phase_name = "Date planning"

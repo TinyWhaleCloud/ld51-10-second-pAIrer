@@ -15,3 +15,7 @@ func _enter_tree() -> void:
 
 func _exit_tree() -> void:
     remove_from_group("ProfileCards")
+
+func remove_from_parent() -> void:
+    if get_parent():
+        get_parent().remove_child(self)

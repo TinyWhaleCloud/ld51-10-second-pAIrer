@@ -6,6 +6,8 @@ signal timeout
 onready var countdown_label := $CountdownLabel as Label
 onready var timer := $Timer as Timer
 
+var remaining_time_after_stop := 0.0
+
 func _ready() -> void:
     init_timer(10)
 
@@ -16,7 +18,7 @@ func _process(delta: float) -> void:
 # Display progress
 func update_value(new_value: float) -> void:
     self.value = new_value
-    countdown_label.text = str(int(self.value))
+    countdown_label.text = str(ceil(self.value))
     update_colors()
 
 func update_colors() -> void:
@@ -29,6 +31,7 @@ func update_colors() -> void:
 
 # Timer control
 func init_timer(_start_time: float) -> void:
+    print_debug("Setting timer to %f seconds" % _start_time)
     self.max_value = _start_time
     update_value(self.max_value)
 
@@ -36,10 +39,11 @@ func start_timer() -> void:
     timer.start(self.max_value)
 
 func stop_timer() -> void:
+    remaining_time_after_stop = timer.time_left
     timer.stop()
 
-func get_seconds_left() -> int:
-    return int(timer.time_left)
+func get_time_left() -> float:
+    return remaining_time_after_stop if timer.is_stopped() else timer.time_left
 
 func _on_Timer_timeout() -> void:
     emit_signal("timeout")
