@@ -1,18 +1,21 @@
+tool
 class_name BaseCard
 extends Area2D
 
 # Card properties
-export var card_title := "Example" setget set_card_title
+export(String) var card_title := "Example" setget set_card_title
+export(Texture) var card_picture: Texture setget set_card_picture
 
 # Whether the card can be selected by the player
 var selectable := true
 
-func _ready() -> void:
-    self.card_title = card_title
-
 func set_card_title(_title: String) -> void:
     card_title = _title
     $TitleLabel.text = card_title
+
+func set_card_picture(_texture: Texture) -> void:
+    card_picture = _texture
+    $CardPicture.texture = _texture
 
 func remove_from_parent() -> void:
     if get_parent():

@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://screens/main_game/phase1/PairingScreen.gd" type="Script" id=1]
 [ext_resource path="res://screens/main_game/BaseGamePhase.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/cards/profile_card/profile_pictures/ProfilePitureHyper.png" type="Texture" id=3]
 [ext_resource path="res://objects/cards/profile_card/ProfileCard.tscn" type="PackedScene" id=4]
-[ext_resource path="res://objects/card_slot/CardSlot.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/card_slot/ProfileCardSlot.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/cards/profile_card/profile_pictures/ProfilePictureCaroline.png" type="Texture" id=6]
+[ext_resource path="res://objects/cards/profile_card/profile_pictures/ProfilePictureHannah.png" type="Texture" id=7]
 
 [node name="PairingScreen" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
@@ -15,13 +18,23 @@ position = Vector2( 560, 400 )
 position = Vector2( 720, 400 )
 
 [node name="ProfileCard1" parent="." index="2" instance=ExtResource( 4 )]
-position = Vector2( 238, 232 )
+position = Vector2( 110, 220 )
 card_title = "Foo 1312"
+card_picture = ExtResource( 6 )
+description = "Likes cars.
+Duh."
+likes_profiles = [ "Trains" ]
 
 [node name="ProfileCard2" parent="." index="3" instance=ExtResource( 4 )]
-position = Vector2( 639, 187 )
+position = Vector2( 292, 221 )
 card_title = "Bar 161"
+card_picture = ExtResource( 7 )
+description = "Hoooorse."
 
 [node name="ProfileCard3" parent="." index="4" instance=ExtResource( 4 )]
-position = Vector2( 1020, 233 )
+position = Vector2( 110, 542 )
 card_title = "Baz 1337"
+card_picture = ExtResource( 3 )
+description = "It's dangerous
+to go alone!
+Take this."
