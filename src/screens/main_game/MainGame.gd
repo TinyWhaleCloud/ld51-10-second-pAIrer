@@ -81,6 +81,7 @@ func finish_round() -> void:
     if profile_card_pool.current_pool_size() < 2:
         # TODO: Game over condition when no profile cards are left
         print_debug("No (or only one) profile card left in the deck!")
+        SceneManager.switch_to_title_screen()
         return
 
     # Start next round
