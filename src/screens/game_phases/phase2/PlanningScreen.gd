@@ -1,5 +1,7 @@
 extends BaseGameScreen
 
+onready var countdown_bar := $HUD/VBox/CountdownBar as CountdownBar
+
 var player: Player = null
 
 var dating_score := 0
@@ -12,6 +14,13 @@ func _ready() -> void:
     # Display selected profile cards
     display_profile_cards(GameState.pairing_profile_card1, GameState.pairing_profile_card2)
 
+    # Start countdown (after a second delay)
+    yield(get_tree().create_timer(1), "timeout")
+    countdown_bar.connect("timeout", self, "_on_CountdownBar_timeout")
+    # TODO: Add remaining time from phase 1
+    countdown_bar.init_timer(10)
+    countdown_bar.start_timer()
+
 func _input(event: InputEvent) -> void:
     if event.is_action_pressed("ui_cancel"):
         get_tree().quit()
@@ -19,6 +28,10 @@ func _input(event: InputEvent) -> void:
         finish_phase()
     elif event.is_action_pressed("interact"):
         add_point()
+
+func _on_CountdownBar_timeout() -> void:
+    print_debug("Countdown timeout!")
+    finish_phase()
 
 func finish_phase() -> void:
     print_debug("Finishing phase 2 with %d points." % dating_score)
