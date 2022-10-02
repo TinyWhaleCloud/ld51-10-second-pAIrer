@@ -40,13 +40,16 @@ func handle_movement(delta: float) -> void:
     if velocity.length() > 0:
         velocity = velocity.normalized() * PLAYER_SPEED
 
-    position += velocity * delta
-    position.x = clamp(position.x, _movement_area.position.x, _movement_area.end.x)
-    position.y = clamp(position.y, _movement_area.position.y, _movement_area.end.y)
+        # Move player
+        position += velocity * delta
+        position.x = clamp(position.x, _movement_area.position.x, _movement_area.end.x)
+        position.y = clamp(position.y, _movement_area.position.y, _movement_area.end.y)
 
-    if velocity.x != 0 || velocity.y != 0:
+        # Rotate character according to movement direction
         rotation = velocity.angle()
-        if !sprite.playing:
+
+        # Animate sprite
+        if not sprite.playing:
             sprite.play()
     elif sprite.playing:
         sprite.stop()
