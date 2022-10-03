@@ -131,7 +131,7 @@ func start_phase1() -> void:
 
     # Shuffle cards and put up to 4 cards on the table
     profile_card_pool.shuffle()
-    for i in range(4):
+    for _i in range(4):
         if profile_card_pool.shuffled_stack_size() > 0:
             pairing_screen.add_card(profile_card_pool.draw_card())
 
@@ -238,6 +238,7 @@ func finish_phase3() -> void:
     assert(current_phase == 3)
 
     # Remove cards from pool
+    # TODO: Only remove profiles from pool if the date was successful
     profile_card_pool.remove_from_pool(pairing_profile_card1.name)
     profile_card_pool.remove_from_pool(pairing_profile_card2.name)
 
