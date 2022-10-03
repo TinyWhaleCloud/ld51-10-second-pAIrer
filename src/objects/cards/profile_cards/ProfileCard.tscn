@@ -19,9 +19,11 @@ Text
 Foobar
 Meow"
 likes_profiles = [  ]
-likes_date_ideas = [  ]
 dislikes_profiles = [  ]
-dislikes_date_ideas = [  ]
+likes_locations = [  ]
+dislikes_locations = [  ]
+likes_activities = [  ]
+dislikes_activities = [  ]
 
 [node name="CardBackground" parent="." index="0"]
 texture = ExtResource( 3 )

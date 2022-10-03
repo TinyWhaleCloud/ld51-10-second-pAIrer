@@ -22,57 +22,164 @@ script = ExtResource( 3 )
 position = Vector2( 109, 171 )
 card_title = "Ash"
 card_picture = ExtResource( 4 )
+description = "just ur average
+ nerdy gxrl.
+up for anything
+ that's inside <3"
+likes_profiles = [ "Grace", "Hyper", "Sebbi", "CatrinaFish" ]
+dislikes_profiles = [ "Bastri", "Caroline", "Chad", "Frank" ]
+likes_locations = [ "Cinema", "Hackspace", "Club", "TheMoon" ]
+dislikes_locations = [ "London", "Paris", "Pisa", "Beach" ]
+likes_activities = [ "ARGame", "GameJam", "Gaming", "GettingASnack", "GettingCoffee", "WatchingAFilm" ]
+dislikes_activities = [ "Cycling", "Sightseeing" ]
 
 [node name="Bastri" parent="." index="1" instance=ExtResource( 2 )]
 position = Vector2( 285, 174 )
 card_title = "Bastri"
 card_picture = ExtResource( 5 )
+description = "Did you know,
+that money can
+buy happiness?"
+likes_profiles = [ "Caroline", "Hannah" ]
+dislikes_profiles = [ "Sebbi", "Ash", "Hyper" ]
+likes_locations = [ "London", "Paris", "Pisa", "Beach" ]
+dislikes_locations = [ "TheMoon", "Hackspace", "Cinema", "Club" ]
+likes_activities = [ "GettingCoffee", "Sightseeing" ]
+dislikes_activities = [ "Cycling", "ARGame", "GameJam", "Gaming" ]
 
 [node name="Caroline" parent="." index="2" instance=ExtResource( 2 )]
 position = Vector2( 462, 178 )
 card_title = "Caroline"
 card_picture = ExtResource( 6 )
+description = "Look at my car!
+It was very
+expensive and
+it's fast."
+likes_profiles = [ "Bastri", "Chad", "Frank" ]
+dislikes_profiles = [ "Ash", "Sebbi", "Hyper", "Hannah" ]
+likes_locations = [ "London", "Pisa", "Club", "Cinema" ]
+dislikes_locations = [ "TheMoon", "Hackspace", "Beach" ]
+likes_activities = [ "GettingASnack", "GettingCoffee", "Sightseeing", "WatchingAFilm" ]
+dislikes_activities = [ "Cycling", "ARGame", "GameJam", "Gaming" ]
 
 [node name="CatrinaFish" parent="." index="3" instance=ExtResource( 2 )]
 position = Vector2( 637, 177 )
 card_title = "Catrina Fish"
 card_picture = ExtResource( 7 )
+description = "catfish need
+love too"
+likes_profiles = [ "Ash", "Grace", "Hyper" ]
+dislikes_profiles = [ "Frank", "Bastri", "Waldo" ]
+likes_locations = [ "Beach", "TheMoon" ]
+dislikes_locations = [ "Cinema", "Club", "Hackspace" ]
+likes_activities = [ "ARGame", "GameJam", "Gaming", "GettingASnack" ]
+dislikes_activities = [ "Sightseeing", "WatchingAFilm", "Cycling", "GettingCoffee" ]
 
 [node name="Chad" parent="." index="4" instance=ExtResource( 2 )]
 position = Vector2( 811, 179 )
 card_title = "Chad"
 card_picture = ExtResource( 8 )
+description = "PARTAAAAAAAAY!
+hit me up if
+you want a
+good time ;)))"
+likes_profiles = [ "Ash", "Grace", "Hannah", "Caroline", "Hyper", "CatrinaFish", "MissNo" ]
+likes_locations = [ "Beach", "Cinema", "Club", "London", "Paris" ]
+dislikes_locations = [ "Hackspace", "TheMoon" ]
+likes_activities = [ "Cycling", "Gaming", "WatchingAFilm" ]
+dislikes_activities = [ "GameJam", "ARGame", "Sightseeing" ]
 
 [node name="Frank" parent="." index="5" instance=ExtResource( 2 )]
 position = Vector2( 980, 178 )
 card_title = "Frank"
 card_picture = ExtResource( 9 )
+description = "Women want me,
+fish fear me.
+That's a shame
+bc I love fish."
+likes_profiles = [ "CatrinaFish", "Caroline", "Waldo" ]
+dislikes_profiles = [ "Ash", "Sebbi" ]
+likes_locations = [ "Beach", "London", "Paris", "Pisa" ]
+dislikes_locations = [ "Cinema", "Club", "Hackspace" ]
+likes_activities = [ "GettingASnack", "GettingCoffee" ]
+dislikes_activities = [ "ARGame", "Cycling", "GameJam", "Gaming" ]
 
 [node name="Grace" parent="." index="6" instance=ExtResource( 2 )]
 position = Vector2( 108, 504 )
 card_title = "Grace"
 card_picture = ExtResource( 10 )
+description = "Mostly looking
+for friends on
+here.
+(No ONS!)"
+likes_profiles = [ "Ash", "Hyper", "CatrinaFish", "Sebbi" ]
+dislikes_profiles = [ "Bastri", "Chad", "Frank" ]
+likes_locations = [ "Beach", "Cinema", "Club", "Hackspace", "Paris", "TheMoon" ]
+dislikes_locations = [ "London", "Pisa" ]
+likes_activities = [ "ARGame", "Cycling", "Gaming", "GettingCoffee", "Sightseeing", "WatchingAFilm" ]
 
 [node name="Hannah" parent="." index="7" instance=ExtResource( 2 )]
 position = Vector2( 284, 507 )
 card_title = "Hannah"
 card_picture = ExtResource( 11 )
+description = "I like horses :)
+Wanna ride
+(with) me?"
+likes_profiles = [ "Bastri", "MissNo", "Waldo" ]
+dislikes_profiles = [ "Ash", "Sebbi", "Caroline" ]
+likes_locations = [ "Beach", "Paris", "Pisa", "London" ]
+dislikes_locations = [ "TheMoon", "Hackspace" ]
+likes_activities = [ "Sightseeing", "GettingASnack", "GettingCoffee" ]
+dislikes_activities = [ "GameJam", "Gaming", "ARGame", "Cycling" ]
 
 [node name="Hyper" parent="." index="8" instance=ExtResource( 2 )]
 position = Vector2( 464, 511 )
 card_title = "Hyper"
 card_picture = ExtResource( 12 )
+description = "Pots are not the
+only thing I'll be
+smashing in your
+home."
+likes_profiles = [ "Ash", "CatrinaFish", "Grace", "Waldo" ]
+dislikes_profiles = [ "Bastri", "Chad", "Caroline", "Frank" ]
+likes_locations = [ "Beach", "Hackspace" ]
+dislikes_locations = [ "TheMoon", "Club" ]
+likes_activities = [ "ARGame", "Cycling", "Gaming", "GettingASnack" ]
+dislikes_activities = [ "GameJam", "GettingCoffee", "WatchingAFilm" ]
 
 [node name="MissNo" parent="." index="9" instance=ExtResource( 2 )]
 position = Vector2( 642, 511 )
 card_title = "Miss No"
+description = "How does this
+website work?
+I'm confused."
+likes_profiles = [ "Bastri", "CatrinaFish", "Frank", "Hannah" ]
+dislikes_profiles = [ "Waldo", "Chad" ]
 
 [node name="Sebbi" parent="." index="10" instance=ExtResource( 2 )]
 position = Vector2( 817, 510 )
 card_title = "Sebbi Sbahn"
 card_picture = ExtResource( 13 )
+description = "Are you into
+public transit?
+Because I'm a
+literal train."
+likes_profiles = [ "Ash", "Grace", "Hyper", "Waldo" ]
+dislikes_profiles = [ "Bastri", "Caroline", "Hannah", "Chad" ]
+likes_locations = [ "London", "Paris", "Pisa", "Hackspace" ]
+dislikes_locations = [ "Beach", "Club", "Cinema" ]
+likes_activities = [ "ARGame", "GettingCoffee", "Sightseeing" ]
+dislikes_activities = [ "GettingASnack", "WatchingAFilm", "Cycling", "GameJam" ]
 
 [node name="Waldo" parent="." index="11" instance=ExtResource( 2 )]
 position = Vector2( 991, 512 )
 card_title = "Waldo"
 card_picture = ExtResource( 14 )
+description = "I love my friends
+and traveling!"
+likes_profiles = [ "Grace", "Hyper", "Caroline", "Sebbi" ]
+dislikes_profiles = [ "Ash", "Chad", "Bastri" ]
+likes_locations = [ "Beach", "London", "Paris", "Pisa", "Cinema", "Club" ]
+dislikes_locations = [ "TheMoon" ]
+likes_activities = [ "ARGame", "Cycling", "Sightseeing", "WatchingAFilm" ]
+dislikes_activities = [ "GameJam", "Gaming" ]
