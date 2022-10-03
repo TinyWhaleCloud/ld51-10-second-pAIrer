@@ -30,15 +30,13 @@ func get_card_position(i: int) -> Position2D:
     return null
 
 func add_card(card: ProfileCard) -> void:
-    assert(card)
-
     var new_card_position := get_card_position(profile_card_count)
-    assert(new_card_position, "All card positions occupied!")
+    assert(new_card_position, "All card positions are occupied!")
 
     profile_cards.append(card)
+    profile_card_count += 1
     card.position = new_card_position.position
     add_child(card)
-    profile_card_count += 1
 
 func all_card_slots_filled() -> bool:
     return pair_card_slot_left.is_occupied and pair_card_slot_right.is_occupied

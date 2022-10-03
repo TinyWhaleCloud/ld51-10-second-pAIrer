@@ -1,5 +1,56 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://objects/cards/BaseCardPool.tscn" type="PackedScene" id=1]
+[ext_resource path="res://objects/cards/date_cards/activity_cards/ActivityCard.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/cards/date_cards/activity_cards/activity_pictures/ActivityPictureARGame.png" type="Texture" id=3]
+[ext_resource path="res://objects/cards/date_cards/activity_cards/activity_pictures/ActivityPictureGettingCoffee.png" type="Texture" id=4]
+[ext_resource path="res://objects/cards/date_cards/activity_cards/activity_pictures/ActivityPictureWatchingAFilm.png" type="Texture" id=5]
+[ext_resource path="res://objects/cards/date_cards/activity_cards/activity_pictures/ActivityPictureGameJam.png" type="Texture" id=6]
+[ext_resource path="res://objects/cards/date_cards/activity_cards/activity_pictures/ActivityPictureGaming.png" type="Texture" id=7]
+[ext_resource path="res://objects/cards/date_cards/activity_cards/activity_pictures/ActivityPictureGettingASnack.png" type="Texture" id=8]
+[ext_resource path="res://objects/cards/date_cards/activity_cards/activity_pictures/ActivityPictureCycling.png" type="Texture" id=9]
+[ext_resource path="res://objects/cards/date_cards/activity_cards/activity_pictures/ActivityPictureSightseeing.png" type="Texture" id=10]
+[ext_resource path="res://objects/cards/date_cards/activity_cards/ActivityCardPool.gd" type="Script" id=11]
 
 [node name="ActivityCardPool" instance=ExtResource( 1 )]
+script = ExtResource( 11 )
+
+[node name="ARGame" parent="." index="0" instance=ExtResource( 2 )]
+position = Vector2( 128, 128 )
+card_title = "AR Game"
+card_picture = ExtResource( 3 )
+
+[node name="Cycling" parent="." index="1" instance=ExtResource( 2 )]
+position = Vector2( 320, 128 )
+card_title = "Cycling"
+card_picture = ExtResource( 9 )
+
+[node name="GameJam" parent="." index="2" instance=ExtResource( 2 )]
+position = Vector2( 512, 128 )
+card_title = "Game Jam"
+card_picture = ExtResource( 6 )
+
+[node name="Gaming" parent="." index="3" instance=ExtResource( 2 )]
+position = Vector2( 704, 128 )
+card_title = "Gaming"
+card_picture = ExtResource( 7 )
+
+[node name="GettingASnack" parent="." index="4" instance=ExtResource( 2 )]
+position = Vector2( 128, 320 )
+card_title = "Get a snack"
+card_picture = ExtResource( 8 )
+
+[node name="GettingCoffee" parent="." index="5" instance=ExtResource( 2 )]
+position = Vector2( 320, 320 )
+card_title = "Get coffee"
+card_picture = ExtResource( 4 )
+
+[node name="Sightseeing" parent="." index="6" instance=ExtResource( 2 )]
+position = Vector2( 512, 320 )
+card_title = "Sightseeing"
+card_picture = ExtResource( 10 )
+
+[node name="WatchingAFilm" parent="." index="7" instance=ExtResource( 2 )]
+position = Vector2( 704, 320 )
+card_title = "Watch film"
+card_picture = ExtResource( 5 )

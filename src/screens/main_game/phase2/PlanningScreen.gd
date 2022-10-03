@@ -7,6 +7,9 @@ onready var card_slot_date_location := $CardSlotDateLocation as BaseCardSlot
 onready var card_slot_date_activity := $CardSlotDateActivity as BaseCardSlot
 
 var player: Player = null
+var date_cards := []
+var location_card_count := 0
+var activity_card_count := 0
 
 func _input(event: InputEvent) -> void:
     if event.is_action_pressed("interact"):
@@ -24,14 +27,46 @@ func set_profile_cards(card1: ProfileCard, card2: ProfileCard) -> void:
     add_child(card2)
 
     # Move cards to the bottom of the screen with fancy, quick animations
-    card1.slide_to_position(Vector2(card1.position.x, 600), 0.3)
-    card2.slide_to_position(Vector2(card2.position.x, 600), 0.3)
+    card1.slide_to_position(Vector2(card1.position.x, 550), 0.3)
+    card2.slide_to_position(Vector2(card2.position.x, 550), 0.3)
+
+func get_location_card_position(i: int) -> Position2D:
+    match i:
+        0: return $LocationCardPosition1 as Position2D
+        1: return $LocationCardPosition2 as Position2D
+        2: return $LocationCardPosition3 as Position2D
+    return null
+
+func get_activity_card_position(i: int) -> Position2D:
+    match i:
+        0: return $ActivityCardPosition1 as Position2D
+        1: return $ActivityCardPosition2 as Position2D
+        2: return $ActivityCardPosition3 as Position2D
+    return null
+
+func add_location_card(card: LocationCard) -> void:
+    var new_card_position := get_location_card_position(location_card_count)
+    assert(new_card_position, "All location card positions are occupied!")
+
+    date_cards.append(card)
+    location_card_count += 1
+    card.position = new_card_position.position
+    add_child(card)
+
+func add_activity_card(card: ActivityCard) -> void:
+    var new_card_position := get_activity_card_position(activity_card_count)
+    assert(new_card_position, "All activity card positions are occupied!")
+
+    date_cards.append(card)
+    activity_card_count += 1
+    card.position = new_card_position.position
+    add_child(card)
 
 func all_card_slots_filled() -> bool:
     return card_slot_date_location.is_occupied and card_slot_date_activity.is_occupied
 
 func find_card_touched_by_player() -> BaseDateCard:
-    for _card in get_tree().get_nodes_in_group("DateCards"):
+    for _card in date_cards:
         var card := _card as BaseDateCard
         # TODO: Handle cases where multiple cards are touched at the same time
         if card and card.overlaps_body(player) and card.selectable:

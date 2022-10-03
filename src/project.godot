@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://objects/cards/date_cards/activity_cards/ActivityCard.gd"
 }, {
+"base": "BaseCardPool",
+"class": "ActivityCardPool",
+"language": "GDScript",
+"path": "res://objects/cards/date_cards/activity_cards/ActivityCardPool.gd"
+}, {
 "base": "Area2D",
 "class": "BaseCard",
 "language": "GDScript",
@@ -59,6 +64,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://objects/cards/date_cards/location_cards/LocationCard.gd"
 }, {
+"base": "BaseCardPool",
+"class": "LocationCardPool",
+"language": "GDScript",
+"path": "res://objects/cards/date_cards/location_cards/LocationCardPool.gd"
+}, {
 "base": "Node2D",
 "class": "MainGame",
 "language": "GDScript",
@@ -91,6 +101,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "ActivityCard": "",
+"ActivityCardPool": "",
 "BaseCard": "",
 "BaseCardPool": "",
 "BaseCardSlot": "",
@@ -100,6 +111,7 @@ _global_script_class_icons={
 "DatingScreen": "",
 "HUD": "",
 "LocationCard": "",
+"LocationCardPool": "",
 "MainGame": "",
 "PairingScreen": "",
 "PlanningScreen": "",

@@ -8,6 +8,8 @@ const DatingScreen := preload("res://screens/main_game/phase3/DatingScreen.tscn"
 
 # Packed scenes (objects)
 const ProfileCardPoolScene := preload("res://objects/cards/profile_cards/ProfileCardPool.tscn")
+const LocationCardPoolScene := preload("res://objects/cards/date_cards/location_cards/LocationCardPool.tscn")
+const ActivityCardPoolScene := preload("res://objects/cards/date_cards/activity_cards/ActivityCardPool.tscn")
 const PlayerScene := preload("res://actors/player/Player.tscn")
 
 # Node references
@@ -19,11 +21,15 @@ var current_phase := 0
 var current_phase_scene: BaseGamePhase = null
 
 # Game state
-var profile_card_pool: ProfileCardPool = null
 var player: Player = null
 var round_score := 0
 var total_score := 0
 var time_left_from_phase1 := 0.0
+
+# Card pools
+var profile_card_pool: ProfileCardPool = null
+var location_card_pool: LocationCardPool = null
+var activity_card_pool: ActivityCardPool = null
 
 # Profile cards selected by the player in phase 1
 var pairing_profile_card1: ProfileCard = null
@@ -37,8 +43,10 @@ func _ready() -> void:
     # Create player instance
     player = PlayerScene.instance() as Player
 
-    # Create profile card pool
+    # Create card pools
     profile_card_pool = ProfileCardPoolScene.instance() as ProfileCardPool
+    location_card_pool = LocationCardPoolScene.instance() as LocationCardPool
+    activity_card_pool = ActivityCardPoolScene.instance() as ActivityCardPool
 
     # Connect events
     countdown_bar.connect("timeout", self, "_on_CountdownBar_timeout")
@@ -182,6 +190,13 @@ func start_phase2() -> void:
     # Add player and chosen profile cards
     planning_screen.set_player(player)
     planning_screen.set_profile_cards(pairing_profile_card1, pairing_profile_card2)
+
+    # Shuffle cards and put up to 3 cards per type on the table
+    location_card_pool.shuffle()
+    activity_card_pool.shuffle()
+    for _i in range(3):
+        planning_screen.add_location_card(location_card_pool.draw_card() as LocationCard)
+        planning_screen.add_activity_card(activity_card_pool.draw_card() as ActivityCard)
 
     # Start countdown (after a second delay)
     # TODO: don't allow interactions in this delay
