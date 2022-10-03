@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://screens/title_screen/TitleScreen.gd" type="Script" id=1]
+[ext_resource path="res://screens/title_screen/mainMenu.wav" type="AudioStream" id=2]
 
 [node name="TitleScreen" type="Node2D"]
 script = ExtResource( 1 )
@@ -11,3 +12,8 @@ margin_top = 89.0
 margin_right = 818.0
 margin_bottom = 218.0
 text = "Title screen!"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = 5.244
+autoplay = true

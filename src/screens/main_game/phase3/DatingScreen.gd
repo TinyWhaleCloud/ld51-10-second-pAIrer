@@ -56,6 +56,10 @@ func start_simulation() -> void:
     var _score2 := 0
     var _score_sum := 0
 
+    if location_card:
+        $AudioStreamPlayer.stream = location_card.location_music
+        $AudioStreamPlayer.play()
+
     # Check if profiles like or dislike each other (double points if like+like / dislike+dislike)
     set_status_text("Checking romantic compatibility...")
     _score1 = check_profile_likes_profile(profile_card1, profile_card2)
