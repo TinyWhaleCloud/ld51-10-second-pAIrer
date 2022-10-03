@@ -3,8 +3,8 @@ extends BaseGamePhase
 
 signal planning_cards_selected
 
-onready var card_slot_date_location := $CardSlotDateLocation as DateCardSlot
-onready var card_slot_date_activity := $CardSlotDateActivity as DateCardSlot
+onready var card_slot_date_location := $CardSlotDateLocation as BaseCardSlot
+onready var card_slot_date_activity := $CardSlotDateActivity as BaseCardSlot
 
 var player: Player = null
 
@@ -30,16 +30,16 @@ func set_profile_cards(card1: ProfileCard, card2: ProfileCard) -> void:
 func all_card_slots_filled() -> bool:
     return card_slot_date_location.is_occupied and card_slot_date_activity.is_occupied
 
-func find_card_touched_by_player() -> DateCard:
+func find_card_touched_by_player() -> BaseDateCard:
     for _card in get_tree().get_nodes_in_group("DateCards"):
-        var card := _card as DateCard
+        var card := _card as BaseDateCard
         # TODO: Handle cases where multiple cards are touched at the same time
         if card and card.overlaps_body(player) and card.selectable:
             return card
     return null
 
-func select_card(card: DateCard) -> void:
-    if card.is_date_location():
+func select_card(card: BaseDateCard) -> void:
+    if card is LocationCard:
         if card_slot_date_location.is_occupied:
             print_debug("Player selected location card '%s', but a date location has already been chosen." % card.card_title)
             return
@@ -48,7 +48,7 @@ func select_card(card: DateCard) -> void:
         card_slot_date_location.set_card(card)
         card.selectable = false
 
-    elif card.is_date_activity():
+    elif card is ActivityCard:
         if card_slot_date_activity.is_occupied:
             print_debug("Player selected activity card '%s', but a date activity has already been chosen." % card.card_title)
             return
@@ -58,7 +58,7 @@ func select_card(card: DateCard) -> void:
         card.selectable = false
 
     else:
-        print_debug("Unknown date card type: %d" % card.date_card_type)
+        print_debug("Unknown date card type", card)
         return
 
     if all_card_slots_filled():
@@ -67,8 +67,8 @@ func select_card(card: DateCard) -> void:
         yield(get_tree().create_timer(0.5), "timeout")
         emit_signal("planning_cards_selected")
 
-func get_date_location_card() -> DateCard:
-    return card_slot_date_location.current_card as DateCard
+func get_date_location_card() -> LocationCard:
+    return card_slot_date_location.current_card as LocationCard
 
-func get_date_activity_card() -> DateCard:
-    return card_slot_date_activity.current_card as DateCard
+func get_date_activity_card() -> ActivityCard:
+    return card_slot_date_activity.current_card as ActivityCard

@@ -30,8 +30,8 @@ var pairing_profile_card1: ProfileCard = null
 var pairing_profile_card2: ProfileCard = null
 
 # Date plan cards selected by the player in phase 2
-var date_location_card: DateCard = null
-var date_activity_card: DateCard = null
+var date_location_card: LocationCard = null
+var date_activity_card: ActivityCard = null
 
 func _ready() -> void:
     # Create player instance
@@ -133,7 +133,7 @@ func start_phase1() -> void:
     profile_card_pool.shuffle()
     for _i in range(4):
         if profile_card_pool.shuffled_stack_size() > 0:
-            pairing_screen.add_card(profile_card_pool.draw_card())
+            pairing_screen.add_card(profile_card_pool.draw_card() as ProfileCard)
 
     # Start countdown
     countdown_bar.init_timer(10)

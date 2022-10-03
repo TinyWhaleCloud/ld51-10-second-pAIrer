@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://screens/main_game/phase2/PlanningScreen.gd" type="Script" id=1]
 [ext_resource path="res://screens/main_game/BaseGamePhase.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/card_slots/DateCardSlot.tscn" type="PackedScene" id=3]
-[ext_resource path="res://objects/cards/date_cards/DateCard.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/cards/date_cards/activity_cards/ActivityCard.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/cards/date_cards/location_cards/LocationCard.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/cards/date_cards/location_cards/location_pictures/LocationPictureTheMoon.png" type="Texture" id=6]
+[ext_resource path="res://objects/cards/date_cards/activity_cards/activity_pictures/ActivityPictureARGame.png" type="Texture" id=7]
 
 [node name="PlanningScreen" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
@@ -14,22 +17,22 @@ position = Vector2( 560, 400 )
 [node name="CardSlotDateActivity" parent="." index="1" instance=ExtResource( 3 )]
 position = Vector2( 720, 400 )
 
-[node name="DateLocationCard1" parent="." index="2" instance=ExtResource( 4 )]
-position = Vector2( 113, 360 )
-card_title = "Location 1"
-date_card_type = 1
+[node name="LocationCard1" parent="." index="2" instance=ExtResource( 5 )]
+position = Vector2( 259, 211 )
+card_title = "Foo"
+card_picture = ExtResource( 6 )
 
-[node name="DateLocationCard2" parent="." index="3" instance=ExtResource( 4 )]
-position = Vector2( 287, 216 )
-card_title = "Location 2"
-date_card_type = 1
+[node name="LocationCard2" parent="." index="3" instance=ExtResource( 5 )]
+position = Vector2( 211, 399 )
+card_title = "Foooo"
+card_picture = ExtResource( 6 )
 
-[node name="DateActivityCard1" parent="." index="4" instance=ExtResource( 4 )]
-position = Vector2( 968, 223 )
-card_title = "Activity 1"
-date_card_type = 2
+[node name="ActivityCard1" parent="." index="4" instance=ExtResource( 4 )]
+position = Vector2( 992, 223 )
+card_title = "Bar"
+card_picture = ExtResource( 7 )
 
-[node name="DateActivityCard2" parent="." index="5" instance=ExtResource( 4 )]
-position = Vector2( 1147, 353 )
-card_title = "Activity 2"
-date_card_type = 2
+[node name="ActivityCard2" parent="." index="5" instance=ExtResource( 4 )]
+position = Vector2( 1060, 393 )
+card_title = "Baaar"
+card_picture = ExtResource( 7 )

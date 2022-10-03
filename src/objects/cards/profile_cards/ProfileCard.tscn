@@ -32,7 +32,6 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 4 )
 
 [node name="CollisionShape" parent="." index="2"]
-visible = false
 shape = SubResource( 1 )
 
 [node name="TitleLabel" parent="." index="3"]

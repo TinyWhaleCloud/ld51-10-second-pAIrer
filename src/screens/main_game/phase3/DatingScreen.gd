@@ -13,7 +13,7 @@ func set_profile_cards(card1: ProfileCard, card2: ProfileCard) -> void:
     card1.slide_to_position(Vector2(120, 600), 0.3)
     card2.slide_to_position(Vector2(280, 600), 0.3)
 
-func set_date_cards(date_location_card: DateCard, date_activity_card: DateCard) -> void:
+func set_date_cards(date_location_card: LocationCard, date_activity_card: ActivityCard) -> void:
     # Move cards to the bottom of the screen with fancy, quick animations
     if date_location_card:
         add_child(date_location_card)
