@@ -2,25 +2,25 @@
 
 [ext_resource path="res://screens/main_game/phase1/PairingScreen.gd" type="Script" id=1]
 [ext_resource path="res://screens/main_game/BaseGamePhase.tscn" type="PackedScene" id=2]
-[ext_resource path="res://objects/card_slot/ProfileCardSlot.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/card_slots/ProfileCardSlot.tscn" type="PackedScene" id=5]
 
 [node name="PairingScreen" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
 
 [node name="PairCardSlotLeft" parent="." index="0" instance=ExtResource( 5 )]
-position = Vector2( 550, 400 )
+position = Vector2( 544, 400 )
 
 [node name="PairCardSlotRight" parent="." index="1" instance=ExtResource( 5 )]
-position = Vector2( 725, 400 )
+position = Vector2( 736, 400 )
 
 [node name="CardPosition1" type="Position2D" parent="." index="2"]
-position = Vector2( 340, 250 )
+position = Vector2( 328, 320 )
 
 [node name="CardPosition2" type="Position2D" parent="." index="3"]
-position = Vector2( 940, 250 )
+position = Vector2( 952, 320 )
 
 [node name="CardPosition3" type="Position2D" parent="." index="4"]
-position = Vector2( 140, 320 )
+position = Vector2( 128, 384 )
 
 [node name="CardPosition4" type="Position2D" parent="." index="5"]
-position = Vector2( 1140, 320 )
+position = Vector2( 1152, 384 )

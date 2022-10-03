@@ -3,7 +3,7 @@
 [ext_resource path="res://objects/cards/BaseCard.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 64, 96 )
+extents = Vector2( 64, 64 )
 
 [node name="BaseCard" type="Area2D"]
 script = ExtResource( 2 )
@@ -13,6 +13,7 @@ script = ExtResource( 2 )
 [node name="CardPicture" type="Sprite" parent="."]
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 1 )
 
 [node name="TitleLabel" type="Label" parent="."]

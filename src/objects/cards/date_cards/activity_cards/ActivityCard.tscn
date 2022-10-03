@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://objects/cards/date_cards/BaseDateCard.tscn" type="PackedScene" id=1]
+[ext_resource path="res://objects/cards/date_cards/activity_cards/ActivityCard.gd" type="Script" id=2]
+[ext_resource path="res://objects/cards/date_cards/activity_cards/ActivityBaseCard.png" type="Texture" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+
+[node name="ActivityCard" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="CardBackground" parent="." index="0"]
+texture = ExtResource( 3 )
+
+[node name="CardPicture" parent="." index="1"]
+position = Vector2( 0, -16 )
+texture = ExtResource( 4 )
+
+[node name="TitleLabel" parent="." index="3"]
+margin_top = 12.0
+margin_bottom = 44.0
