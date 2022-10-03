@@ -80,7 +80,10 @@ func start_simulation() -> void:
     # emit_signal("simulation_finished", round_score)
 
 func log_score(_card1: BaseCard, _card2: BaseCard, _score: int) -> void:
-    print("Does %s like %s? -> %d points! -> Total: %d" % [_card1.name, _card2.name, _score, round_score + _score])
+    if _card1 and _card2:
+        print("Does %s like %s? -> %d points -> Total: %d" % [_card1.name, _card2.name, _score, round_score + _score])
+    else:
+        print("Empty card slot! -> %d points -> Total: %d" % [_score, round_score + _score])
 
 func add_to_score(_points: int) -> void:
     round_score += _points
@@ -140,7 +143,8 @@ func check_location_fits_to_activity() -> int:
         elif location_card.bad_activities.has(activity_card.name):
             _points = -10
 
-    print("Does activity %s fit to location %s? -> %d points! -> Total: %d"
-          % [activity_card.name, location_card.name, _points, round_score + _points])
+        print("Does activity %s fit to location %s? -> %d points! -> Total: %d"
+            % [activity_card.name, location_card.name, _points, round_score + _points])
+
     add_to_score(_points)
     return _points
