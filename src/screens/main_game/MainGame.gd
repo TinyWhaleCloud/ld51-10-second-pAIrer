@@ -23,6 +23,7 @@ var current_phase_scene: BaseGamePhase = null
 # Game state
 var player: Player = null
 var total_score := 0
+var round_score := 0
 var time_left_from_phase1 := 0.0
 
 # Card pools
@@ -56,8 +57,6 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
     if event.is_action_pressed("ui_cancel"):
         get_tree().quit()
-    elif event.is_action_pressed("debug_next_phase"):
-        finish_current_phase()
 
 func _on_CountdownBar_timeout() -> void:
     print_debug("Countdown timeout!")
@@ -65,6 +64,9 @@ func _on_CountdownBar_timeout() -> void:
 
 # Scene management
 func start_new_round() -> void:
+    # Update score
+    hud.total_score = total_score
+
     # Reset phase instances
     cleanup_phase()
 
@@ -79,10 +81,6 @@ func start_new_round() -> void:
     start_phase1()
 
 func finish_round() -> void:
-    # TODO: Add scores and stuff
-    total_score += 100
-    hud.total_score = total_score
-
     # Check if there are enough profile cards left for another round
     if profile_card_pool.current_pool_size() < 2:
         # TODO: Game over condition when no profile cards are left
@@ -142,6 +140,7 @@ func start_phase1() -> void:
             pairing_screen.add_card(profile_card_pool.draw_card() as ProfileCard)
 
     # Start countdown
+    countdown_bar.show()
     countdown_bar.init_timer(10)
     countdown_bar.start_timer()
 
@@ -236,24 +235,30 @@ func start_phase3() -> void:
     var dating_screen := DatingScreen.instance() as DatingScreen
     switch_to_phase(3, dating_screen)
     hud.phase_title = "Will they or won't they?"
-    # dating_screen.connect("simulation_finished", self, "finish_phase3")
+    dating_screen.connect("finish_round", self, "finish_phase3")
 
     # Add player and chosen profile cards
     dating_screen.set_profile_cards(pairing_profile_card1, pairing_profile_card2)
     dating_screen.set_date_cards(date_location_card, date_activity_card)
 
-    # TODO: Hide countdown bar, simulate date
-    countdown_bar.init_timer(10)
-    countdown_bar.start_timer()
+    # Hide countdown and start simulation!
+    countdown_bar.hide()
+    dating_screen.start_simulation()
 
 func finish_phase3() -> void:
     print_debug("Finishing phase 3...")
     assert(current_phase == 3)
 
-    # Remove cards from pool
-    # TODO: Only remove profiles from pool if the date was successful
-    profile_card_pool.remove_from_pool(pairing_profile_card1.name)
-    profile_card_pool.remove_from_pool(pairing_profile_card2.name)
+    # Add round score to total score
+    var dating_screen := current_phase_scene as DatingScreen
+    var _round_score = dating_screen.round_score
+    total_score += _round_score
+
+    # Remove cards from pool if the date was especially nice - or terrible.
+    if _round_score <= -100 or _round_score >= 100:
+        print_debug("Removing profiles %s and %s from pool." % [pairing_profile_card1.name, pairing_profile_card2.name])
+        profile_card_pool.remove_from_pool(pairing_profile_card1.name)
+        profile_card_pool.remove_from_pool(pairing_profile_card2.name)
 
     # Next round (if cards left)
     finish_round()

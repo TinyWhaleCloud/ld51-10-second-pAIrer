@@ -1,7 +1,25 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://screens/main_game/phase3/DatingScreen.gd" type="Script" id=1]
 [ext_resource path="res://screens/main_game/BaseGamePhase.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ui/date_o_meter/DateOMeter.tscn" type="PackedScene" id=3]
 
 [node name="DatingScreen" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
+
+[node name="DateOMeter" parent="." index="0" instance=ExtResource( 3 )]
+position = Vector2( 640, 80 )
+
+[node name="StatusTextLabel" type="RichTextLabel" parent="." index="1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 376.0
+margin_top = 616.0
+margin_right = 904.0
+margin_bottom = 712.0
+bbcode_enabled = true
+bbcode_text = "[center]Checking romantic compatibility...
+[color=#808080]No points[/color][/center]"
+text = "Checking romantic compatibility...
+No points"
+fit_content_height = true
