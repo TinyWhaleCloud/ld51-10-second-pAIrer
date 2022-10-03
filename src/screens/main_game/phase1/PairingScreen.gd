@@ -44,7 +44,6 @@ func all_card_slots_filled() -> bool:
 func find_card_touched_by_player() -> ProfileCard:
     for _card in profile_cards:
         var card := _card as ProfileCard
-        # TODO: Handle cases where multiple cards are touched at the same time
         if card and card.overlaps_body(player) and card.selectable:
             return card
     return null

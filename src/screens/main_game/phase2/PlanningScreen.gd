@@ -68,7 +68,6 @@ func all_card_slots_filled() -> bool:
 func find_card_touched_by_player() -> BaseDateCard:
     for _card in date_cards:
         var card := _card as BaseDateCard
-        # TODO: Handle cases where multiple cards are touched at the same time
         if card and card.overlaps_body(player) and card.selectable:
             return card
     return null

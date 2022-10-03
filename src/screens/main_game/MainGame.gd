@@ -12,9 +12,13 @@ const LocationCardPoolScene := preload("res://objects/cards/date_cards/location_
 const ActivityCardPoolScene := preload("res://objects/cards/date_cards/activity_cards/ActivityCardPool.tscn")
 const PlayerScene := preload("res://actors/player/Player.tscn")
 
+# Remove profiles from the pool if the date score is above this value or below the negative value
+const PROFILE_REMOVAL_THRESHOLD := 60
+
 # Node references
 onready var hud := $HUD as HUD
 onready var countdown_bar := hud.countdown_bar as CountdownBar
+onready var fail_text_label := $HUD/FailTextLabel as RichTextLabel
 
 # Current phase
 var current_phase := 0
@@ -155,9 +159,13 @@ func finish_phase1() -> void:
     # Check if cards were chosen
     var pairing_screen := current_phase_scene as PairingScreen
     if not pairing_screen.all_card_slots_filled():
-        print_debug("Player hasn't finished! :(")
-        # TODO: remove one life and restart phase
-        # TODO: disable movement while paused
+        print_debug("Player hasn't selected two profiles! :(")
+
+        # Remove 100 points and show failure text, then restart round
+        total_score -= 100
+        display_fail_text("Too slow!\n[color=#ff0000]-100 points[/color]\n(Please select two profile cards.)")
+
+        # Dramatic pause!
         yield(get_tree().create_timer(1), "timeout")
         finish_round()
         return
@@ -172,6 +180,13 @@ func finish_phase1() -> void:
 
     # Start next phase
     start_phase2()
+
+func display_fail_text(_text: String) -> void:
+    fail_text_label.bbcode_text = "[center]%s[/center]" % _text
+
+    # Remove text after 3 seconds
+    yield(get_tree().create_timer(3), "timeout")
+    fail_text_label.bbcode_text = ""
 
 # Phase 2: Date planning
 func start_phase2() -> void:
@@ -199,8 +214,7 @@ func start_phase2() -> void:
     countdown_bar.init_timer(10)
 
     # Start countdown (after a second delay)
-    # TODO: don't allow interactions in this delay
-    yield(get_tree().create_timer(1), "timeout")
+    yield(get_tree().create_timer(0.5), "timeout")
     countdown_bar.start_timer()
 
 func finish_phase2() -> void:
@@ -255,7 +269,7 @@ func finish_phase3() -> void:
     total_score += _round_score
 
     # Remove cards from pool if the date was especially nice - or terrible.
-    if _round_score <= -100 or _round_score >= 100:
+    if _round_score <= -PROFILE_REMOVAL_THRESHOLD or _round_score >= PROFILE_REMOVAL_THRESHOLD:
         print_debug("Removing profiles %s and %s from pool." % [pairing_profile_card1.name, pairing_profile_card2.name])
         profile_card_pool.remove_from_pool(pairing_profile_card1.name)
         profile_card_pool.remove_from_pool(pairing_profile_card2.name)
