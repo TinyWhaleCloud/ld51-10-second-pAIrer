@@ -26,7 +26,7 @@ func get_angle_for_score(_score: int) -> float:
 func move_to_new_score(_new_score: int) -> void:
     tween.interpolate_property(
         self, "score",
-        score, _new_score, 3.0,
+        score, _new_score, 2.0,
         Tween.TRANS_ELASTIC, Tween.EASE_OUT
     )
     tween.start()
