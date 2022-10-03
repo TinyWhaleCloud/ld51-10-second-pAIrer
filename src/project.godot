@@ -68,6 +68,11 @@ _global_script_classes=[ {
 "class": "ProfileCard",
 "language": "GDScript",
 "path": "res://objects/cards/profile_card/ProfileCard.gd"
+}, {
+"base": "Node",
+"class": "ProfileCardPool",
+"language": "GDScript",
+"path": "res://objects/cards/profile_card/ProfileCardPool.gd"
 } ]
 _global_script_class_icons={
 "BaseCard": "",
@@ -81,7 +86,8 @@ _global_script_class_icons={
 "PairingScreen": "",
 "PlanningScreen": "",
 "Player": "",
-"ProfileCard": ""
+"ProfileCard": "",
+"ProfileCardPool": ""
 }
 
 [application]
