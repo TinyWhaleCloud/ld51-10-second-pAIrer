@@ -18,31 +18,22 @@ unique_name_in_owner = true
 anchor_right = 0.0
 margin_right = 1264.0
 margin_bottom = 36.0
+value = 10.0
 
-[node name="TextContainer" type="HBoxContainer" parent="VBox"]
+[node name="PhaseLabel" type="Label" parent="VBox"]
+unique_name_in_owner = true
 margin_top = 40.0
 margin_right = 1264.0
-margin_bottom = 70.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 0, 40 )
+text = "[PHASE TITLE]"
+align = 1
+valign = 1
 
-[node name="PhaseLabel" type="Label" parent="VBox/TextContainer"]
+[node name="TotalScoreLabel" type="Label" parent="."]
 unique_name_in_owner = true
-margin_right = 418.0
-margin_bottom = 30.0
-size_flags_horizontal = 3
-text = "Phase: [PHASE] "
-
-[node name="RoundScoreLabel" type="Label" parent="VBox/TextContainer"]
-unique_name_in_owner = true
-margin_left = 422.0
-margin_right = 841.0
-margin_bottom = 30.0
-size_flags_horizontal = 3
-text = "Current score: [SCORE] "
-
-[node name="TotalScoreLabel" type="Label" parent="VBox/TextContainer"]
-unique_name_in_owner = true
-margin_left = 845.0
-margin_right = 1264.0
-margin_bottom = 30.0
-size_flags_horizontal = 3
-text = "Total Score: [SCORE] "
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1080.0
+margin_top = 680.0
+text = "Score: 1000"

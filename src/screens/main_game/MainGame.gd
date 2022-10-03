@@ -22,7 +22,6 @@ var current_phase_scene: BaseGamePhase = null
 
 # Game state
 var player: Player = null
-var round_score := 0
 var total_score := 0
 var time_left_from_phase1 := 0.0
 
@@ -75,14 +74,13 @@ func start_new_round() -> void:
     date_location_card = null
     date_activity_card = null
     time_left_from_phase1 = 0.0
-    round_score = 0
 
     # Start first phase
     start_phase1()
 
 func finish_round() -> void:
     # TODO: Add scores and stuff
-    total_score += round_score
+    total_score += 100
     hud.total_score = total_score
 
     # Check if there are enough profile cards left for another round
@@ -133,7 +131,7 @@ func start_phase1() -> void:
     # Instance scene and add it to the tree
     var pairing_screen := PairingScreen.instance() as PairingScreen
     switch_to_phase(1, pairing_screen)
-    hud.phase_name = "Pairing"
+    hud.phase_title = "Find the best pairing!"
     pairing_screen.connect("pair_cards_selected", self, "finish_phase1")
     pairing_screen.set_player(player)
 
@@ -184,7 +182,7 @@ func start_phase2() -> void:
     # Instance scene and add it to the tree
     var planning_screen := PlanningScreen.instance() as PlanningScreen
     switch_to_phase(2, planning_screen)
-    hud.phase_name = "Date planning"
+    hud.phase_title = "Plan the perfect date!"
     planning_screen.connect("planning_cards_selected", self, "finish_phase2")
 
     # Add player and chosen profile cards
@@ -198,12 +196,12 @@ func start_phase2() -> void:
         planning_screen.add_location_card(location_card_pool.draw_card() as LocationCard)
         planning_screen.add_activity_card(activity_card_pool.draw_card() as ActivityCard)
 
+    # Set countdown
+    countdown_bar.init_timer(10)
+
     # Start countdown (after a second delay)
     # TODO: don't allow interactions in this delay
     yield(get_tree().create_timer(1), "timeout")
-
-    # Start countdown (add remaining time from phase 1)
-    countdown_bar.init_timer(10 + time_left_from_phase1)
     countdown_bar.start_timer()
 
 func finish_phase2() -> void:
@@ -237,7 +235,7 @@ func start_phase3() -> void:
     # Instance scene and add it to the tree
     var dating_screen := DatingScreen.instance() as DatingScreen
     switch_to_phase(3, dating_screen)
-    hud.phase_name = "Date simulation"
+    hud.phase_title = "Will they or won't they?"
     # dating_screen.connect("simulation_finished", self, "finish_phase3")
 
     # Add player and chosen profile cards
