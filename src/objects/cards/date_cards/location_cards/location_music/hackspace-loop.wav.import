@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/hackspace-loop.wav-1818a332a66b9c3594c882ef40ecc9a9.sample"
+
+[deps]
+
+source_file="res://objects/cards/date_cards/location_cards/location_music/hackspace-loop.wav"
+dest_files=[ "res://.import/hackspace-loop.wav-1818a332a66b9c3594c882ef40ecc9a9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

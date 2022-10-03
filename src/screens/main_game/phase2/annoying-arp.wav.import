@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/annoying-arp.wav-6364ed50dab451dc2daf9b6c92683ef2.sample"
+
+[deps]
+
+source_file="res://screens/main_game/phase2/annoying-arp.wav"
+dest_files=[ "res://.import/annoying-arp.wav-6364ed50dab451dc2daf9b6c92683ef2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

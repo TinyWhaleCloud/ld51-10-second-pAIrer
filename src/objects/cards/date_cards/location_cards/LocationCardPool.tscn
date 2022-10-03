@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://objects/cards/BaseCardPool.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/cards/date_cards/location_cards/LocationCard.tscn" type="PackedScene" id=2]
@@ -11,6 +11,14 @@
 [ext_resource path="res://objects/cards/date_cards/location_cards/location_pictures/LocationPictureClub.png" type="Texture" id=9]
 [ext_resource path="res://objects/cards/date_cards/location_cards/location_pictures/LocationPicturePisa.png" type="Texture" id=10]
 [ext_resource path="res://objects/cards/date_cards/location_cards/LocationCardPool.gd" type="Script" id=11]
+[ext_resource path="res://objects/cards/date_cards/location_cards/location_music/moon-loop.wav" type="AudioStream" id=12]
+[ext_resource path="res://objects/cards/date_cards/location_cards/location_music/beach-loop.wav" type="AudioStream" id=13]
+[ext_resource path="res://objects/cards/date_cards/location_cards/location_music/club-loop.wav" type="AudioStream" id=14]
+[ext_resource path="res://objects/cards/date_cards/location_cards/location_music/hackspace-loop.wav" type="AudioStream" id=15]
+[ext_resource path="res://objects/cards/date_cards/location_cards/location_music/cinema-loop.wav" type="AudioStream" id=16]
+[ext_resource path="res://objects/cards/date_cards/location_cards/location_music/london-loop.wav" type="AudioStream" id=17]
+[ext_resource path="res://objects/cards/date_cards/location_cards/location_music/pisa-loop.wav" type="AudioStream" id=18]
+[ext_resource path="res://objects/cards/date_cards/location_cards/location_music/paris-loop.wav" type="AudioStream" id=19]
 
 [node name="LocationCardPool" instance=ExtResource( 1 )]
 script = ExtResource( 11 )
@@ -21,6 +29,7 @@ card_title = "Beach"
 card_picture = ExtResource( 7 )
 good_activities = [ "ARGame", "GettingASnack", "Sightseeing" ]
 bad_activities = [ "Cycling", "GameJam" ]
+location_music = ExtResource( 13 )
 
 [node name="Cinema" parent="." index="1" instance=ExtResource( 2 )]
 position = Vector2( 320, 128 )
@@ -28,6 +37,7 @@ card_title = "Cinema"
 card_picture = ExtResource( 4 )
 good_activities = [ "WatchingAFilm", "GettingASnack" ]
 bad_activities = [ "ARGame", "Cycling", "GameJam", "Gaming", "Sightseeing" ]
+location_music = ExtResource( 16 )
 
 [node name="Club" parent="." index="2" instance=ExtResource( 2 )]
 position = Vector2( 512, 128 )
@@ -35,6 +45,7 @@ card_title = "Club"
 card_picture = ExtResource( 9 )
 good_activities = [ "GettingASnack", "GettingCoffee" ]
 bad_activities = [ "WatchingAFilm", "Sightseeing", "GameJam", "Cycling" ]
+location_music = ExtResource( 14 )
 
 [node name="Hackspace" parent="." index="3" instance=ExtResource( 2 )]
 position = Vector2( 704, 128 )
@@ -42,6 +53,7 @@ card_title = "Hackspace"
 card_picture = ExtResource( 5 )
 good_activities = [ "GameJam", "Gaming", "GettingASnack", "GettingCoffee", "WatchingAFilm" ]
 bad_activities = [ "Cycling" ]
+location_music = ExtResource( 15 )
 
 [node name="London" parent="." index="4" instance=ExtResource( 2 )]
 position = Vector2( 128, 320 )
@@ -49,6 +61,7 @@ card_title = "London"
 card_picture = ExtResource( 6 )
 good_activities = [ "ARGame", "Cycling", "GettingASnack", "GettingCoffee", "Sightseeing" ]
 bad_activities = [ "GameJam" ]
+location_music = ExtResource( 17 )
 
 [node name="Paris" parent="." index="5" instance=ExtResource( 2 )]
 position = Vector2( 320, 320 )
@@ -56,6 +69,7 @@ card_title = "Paris"
 card_picture = ExtResource( 8 )
 good_activities = [ "ARGame", "Cycling", "GettingASnack", "GettingCoffee", "Sightseeing" ]
 bad_activities = [ "GameJam" ]
+location_music = ExtResource( 19 )
 
 [node name="Pisa" parent="." index="6" instance=ExtResource( 2 )]
 position = Vector2( 512, 320 )
@@ -63,6 +77,7 @@ card_title = "Pisa"
 card_picture = ExtResource( 10 )
 good_activities = [ "ARGame", "GettingASnack", "GettingCoffee", "Sightseeing" ]
 bad_activities = [ "GameJam" ]
+location_music = ExtResource( 18 )
 
 [node name="TheMoon" parent="." index="7" instance=ExtResource( 2 )]
 position = Vector2( 704, 320 )
@@ -70,3 +85,4 @@ card_title = "The Moon"
 card_picture = ExtResource( 3 )
 good_activities = [ "Cycling", "GettingASnack", "GettingCoffee", "Sightseeing" ]
 bad_activities = [ "ARGame", "GameJam", "WatchingAFilm", "Gaming" ]
+location_music = ExtResource( 12 )
