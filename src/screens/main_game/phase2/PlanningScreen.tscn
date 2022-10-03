@@ -2,8 +2,8 @@
 
 [ext_resource path="res://screens/main_game/phase2/PlanningScreen.gd" type="Script" id=1]
 [ext_resource path="res://screens/main_game/BaseGamePhase.tscn" type="PackedScene" id=2]
-[ext_resource path="res://objects/card_slot/DateCardSlot.tscn" type="PackedScene" id=3]
-[ext_resource path="res://objects/cards/date_card/DateCard.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/card_slots/DateCardSlot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/cards/date_cards/DateCard.tscn" type="PackedScene" id=4]
 
 [node name="PlanningScreen" instance=ExtResource( 2 )]
 script = ExtResource( 1 )

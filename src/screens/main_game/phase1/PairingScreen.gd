@@ -3,8 +3,8 @@ extends BaseGamePhase
 
 signal pair_cards_selected
 
-onready var pair_card_slot_left := $PairCardSlotLeft as CardSlot
-onready var pair_card_slot_right := $PairCardSlotRight as CardSlot
+onready var pair_card_slot_left := $PairCardSlotLeft as ProfileCardSlot
+onready var pair_card_slot_right := $PairCardSlotRight as ProfileCardSlot
 
 var player: Player = null
 var profile_cards := []

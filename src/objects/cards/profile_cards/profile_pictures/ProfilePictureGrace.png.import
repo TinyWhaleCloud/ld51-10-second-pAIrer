@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ProfilePictureFrank.png-da603b25ea3ae91cb4da5f18adb0a087.stex"
+path="res://.import/ProfilePictureGrace.png-f2e71953f67f916a16d795d4d3497e0d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objects/cards/profile_card/profile_pictures/ProfilePictureFrank.png"
-dest_files=[ "res://.import/ProfilePictureFrank.png-da603b25ea3ae91cb4da5f18adb0a087.stex" ]
+source_file="res://objects/cards/profile_cards/profile_pictures/ProfilePictureGrace.png"
+dest_files=[ "res://.import/ProfilePictureGrace.png-f2e71953f67f916a16d795d4d3497e0d.stex" ]
 
 [params]
 

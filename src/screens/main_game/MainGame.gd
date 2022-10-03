@@ -7,7 +7,7 @@ const PlanningScreen := preload("res://screens/main_game/phase2/PlanningScreen.t
 const DatingScreen := preload("res://screens/main_game/phase3/DatingScreen.tscn")
 
 # Packed scenes (objects)
-const ProfileCardPoolScene := preload("res://objects/cards/profile_card/ProfileCardPool.tscn")
+const ProfileCardPoolScene := preload("res://objects/cards/profile_cards/ProfileCardPool.tscn")
 const PlayerScene := preload("res://actors/player/Player.tscn")
 
 # Node references

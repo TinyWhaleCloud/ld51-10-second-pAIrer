@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ProfilePictureWaldo.png-07f95379ddaabfd6462639f31b0da0cf.stex"
+path="res://.import/ProfilePictureChad.png-5f5025572e977f30a0c15d05881be30a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objects/cards/profile_card/profile_pictures/ProfilePictureWaldo.png"
-dest_files=[ "res://.import/ProfilePictureWaldo.png-07f95379ddaabfd6462639f31b0da0cf.stex" ]
+source_file="res://objects/cards/profile_cards/profile_pictures/ProfilePictureChad.png"
+dest_files=[ "res://.import/ProfilePictureChad.png-5f5025572e977f30a0c15d05881be30a.stex" ]
 
 [params]
 

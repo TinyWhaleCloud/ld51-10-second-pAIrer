@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ProfilePictureBastri.png-d670801f26b2e1078a71695bf5be676d.stex"
+path="res://.import/ProfilePictureHyper.png-2762cc714381e116df5bdda9406aa5ad.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objects/cards/profile_card/profile_pictures/ProfilePictureBastri.png"
-dest_files=[ "res://.import/ProfilePictureBastri.png-d670801f26b2e1078a71695bf5be676d.stex" ]
+source_file="res://objects/cards/profile_cards/profile_pictures/ProfilePictureHyper.png"
+dest_files=[ "res://.import/ProfilePictureHyper.png-2762cc714381e116df5bdda9406aa5ad.stex" ]
 
 [params]
 

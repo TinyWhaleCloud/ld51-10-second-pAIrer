@@ -2,7 +2,7 @@
 
 [ext_resource path="res://screens/main_game/phase1/PairingScreen.gd" type="Script" id=1]
 [ext_resource path="res://screens/main_game/BaseGamePhase.tscn" type="PackedScene" id=2]
-[ext_resource path="res://objects/card_slot/ProfileCardSlot.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/card_slots/ProfileCardSlot.tscn" type="PackedScene" id=5]
 
 [node name="PairingScreen" instance=ExtResource( 2 )]
 script = ExtResource( 1 )

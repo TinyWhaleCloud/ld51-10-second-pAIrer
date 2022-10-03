@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ProfilePictureCatrinaFish.png-c24188d13e51b9926bd5dfc694e70056.stex"
+path="res://.import/ProfilePictureFrank.png-f7def79f05bea31c74be6b4ae635b91f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objects/cards/profile_card/profile_pictures/ProfilePictureCatrinaFish.png"
-dest_files=[ "res://.import/ProfilePictureCatrinaFish.png-c24188d13e51b9926bd5dfc694e70056.stex" ]
+source_file="res://objects/cards/profile_cards/profile_pictures/ProfilePictureFrank.png"
+dest_files=[ "res://.import/ProfilePictureFrank.png-f7def79f05bea31c74be6b4ae635b91f.stex" ]
 
 [params]
 

@@ -1,4 +1,4 @@
-class_name CardSlot
+class_name BaseCardSlot
 extends Node2D
 
 # Whether there is a card in this slot

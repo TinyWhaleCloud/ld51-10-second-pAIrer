@@ -3,8 +3,8 @@ extends BaseGamePhase
 
 signal planning_cards_selected
 
-onready var card_slot_date_location := $CardSlotDateLocation as CardSlot
-onready var card_slot_date_activity := $CardSlotDateActivity as CardSlot
+onready var card_slot_date_location := $CardSlotDateLocation as DateCardSlot
+onready var card_slot_date_activity := $CardSlotDateActivity as DateCardSlot
 
 var player: Player = null
 
