@@ -136,6 +136,7 @@ config/icon="res://icon.png"
 [autoload]
 
 SceneManager="*res://globals/SceneManager.gd"
+HighScores="*res://globals/HighScores.gd"
 
 [debug]
 

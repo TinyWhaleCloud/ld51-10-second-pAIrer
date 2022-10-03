@@ -61,7 +61,7 @@ bbcode_enabled = true
 bbcode_text = "You are the algorithm."
 text = "You are the algorithm."
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+[node name="PreviousHighScoreLabel" type="RichTextLabel" parent="."]
 margin_left = 52.0
 margin_top = 29.0
 margin_right = 1265.0

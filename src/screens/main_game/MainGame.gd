@@ -87,13 +87,23 @@ func start_new_round() -> void:
 func finish_round() -> void:
     # Check if there are enough profile cards left for another round
     if profile_card_pool.current_pool_size() < 2:
-        # TODO: Game over condition when no profile cards are left
-        print_debug("No (or only one) profile card left in the deck!")
-        SceneManager.switch_to_title_screen()
+        print_debug("No (or only one) profile card left in the deck! -> Game over!")
+        game_over()
         return
 
     # Start next round
     start_new_round()
+
+func game_over() -> void:
+    # Temporarily save total score in HighScores global to display on game over screen
+    HighScores.last_score = total_score
+
+    # Save highscore (if higher)
+    var new_highscore: int = HighScores.set_score_if_higher(total_score)
+    HighScores.last_score_is_new_high = new_highscore
+
+    # Show game over screen
+    SceneManager.switch_to_game_over_screen()
 
 func cleanup_phase() -> void:
     # Clean up previous phase
