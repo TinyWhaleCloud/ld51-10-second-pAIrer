@@ -5,6 +5,7 @@ extends KinematicBody2D
 # TODO: Find optimal player speed
 const PLAYER_SPEED = 600
 const HUD_DEAD_ZONE = 64
+const ANALOG_STICK_DEADZONE = 0.05
 
 # Node references
 onready var sprite := $Sprite as AnimatedSprite
@@ -28,6 +29,8 @@ func _process(delta: float) -> void:
 
 func handle_movement(delta: float) -> void:
     var velocity := Vector2.ZERO
+
+    # Control via keyboard
     if Input.is_action_pressed("move_left"):
         velocity.x -= 1
     if Input.is_action_pressed("move_right"):
@@ -38,10 +41,19 @@ func handle_movement(delta: float) -> void:
         velocity.y += 1
 
     if velocity.length() > 0:
-        velocity = velocity.normalized() * PLAYER_SPEED
+        velocity = velocity.normalized()
 
+    # Control via left analog stick
+    var left_stick_vector = Vector2(
+        Input.get_joy_axis(0, JOY_AXIS_0),
+        Input.get_joy_axis(0, JOY_AXIS_1)
+    )
+    if left_stick_vector.length_squared() > ANALOG_STICK_DEADZONE:
+        velocity = left_stick_vector
+
+    if velocity.length() > 0:
         # Move player
-        position += velocity * delta
+        position += velocity * PLAYER_SPEED * delta
         position.x = clamp(position.x, _movement_area.position.x, _movement_area.end.x)
         position.y = clamp(position.y, _movement_area.position.y, _movement_area.end.y)
 
